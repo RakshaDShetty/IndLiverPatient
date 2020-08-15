@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Indian Liver Patient Analysis using Machine Learning
 
 You can use the [editor on GitHub](https://github.com/RakshaDShetty/IndLiverPatient/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
