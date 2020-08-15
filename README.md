@@ -294,6 +294,7 @@ coeff_df.sort_values(by='Correlation', ascending=False)
 ```
 Dataset
 
+Linear Regression
 ```
 from sklearn import linear_model
 linear = linear_model.LinearRegression()
@@ -387,8 +388,48 @@ loregaccuracy*100
 Output:
 71.26436781609196
 ```
+K-Nearest Neighbors
 ```
-#here its comparing to knw how many matches and not
+from sklearn.neighbors import KNeighborsClassifier
+knn=KNeighborsClassifier()
+knn.fit(X_test,Y_test)
+knnpred=knn.predict(X_test)
+knnacc=knn.score(X_test,Y_test)
+knnacc*100
+
+Output:
+79.3103448275862
+```
+Decision Tree classifier
+```
+from sklearn.tree import DecisionTreeClassifier
+DTree= DecisionTreeClassifier()
+DTree.fit(X_train,Y_train)
+DTreePred=DTree.predict(X_test)
+DTreeAccu=DTree.score(X_test,Y_test)
+DTreeAccu*100
+
+Output:
+61.206896551724135
+```
+Random forest Classifier
+```
+from sklearn.ensemble import RandomForestClassifier
+RDF=RandomForestClassifier(random_state=142)
+RDF.fit(X_train,Y_train)
+RDFPred=RDF.predict(X_test)
+RDFAccu=RDF.score(X_test,Y_test)
+RDFAccu*100
+
+Output:
+68.10344827586206
+```
+From the above Model Prediction we conclude that Logistic Regression(78.45) and KNN(79.31) have highest Accuracy.
+
+
+
+```
+#here its comparing to knw how many matches and not 
 from sklearn.metrics import confusion_matrix
 conmat=confusion_matrix(Y_test,log_predicted)
 conmat
@@ -396,4 +437,13 @@ conmat
 Output:
 array([[123,   1],
        [ 49,   1]], dtype=int64)
+
+from sklearn.metrics import confusion_matrix
+knnmat=confusion_matrix(Y_test,knnpred)
+knnmat
+
+Output:
+array([[90,  2],
+       [22,  2]], dtype=int64)
+       
 ```       
