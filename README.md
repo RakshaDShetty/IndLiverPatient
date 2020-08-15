@@ -362,22 +362,22 @@ print('Classification Report:\n', classification_report(Y_test,log_predicted))
 sns.heatmap(confusion_matrix(Y_test,log_predicted),annot=True,fmt="d")
 
 Output:
-Logistic Regression Train Accuracy: 71.35802469135803
-Logistic Regression Test Accuracy: 71.26436781609196
-Coefficient: [[-0.53473804  1.14349258 -0.32966062]]
-Intercept: [-0.87751055]
-Accuracy: 0.7126436781609196
-Confusion Matrix: [[123   1]
-                  [ 49   1]]
+Logistic Regression Train Accuracy: 79.76241900647948
+Logistic Regression Test Accuracy: 78.44827586206897
+Coefficient: [[-0.50389398  0.97519014 -0.43140494]]
+Intercept: [-0.34806314]
+Accuracy: 0.7844827586206896
+Confusion Matrix: [[90  2]
+ [23  1]]
 Classification Report:
                precision    recall  f1-score   support
 
-           1       0.72      0.99      0.83       124
-           2       0.50      0.02      0.04        50
+           1       0.80      0.98      0.88        92
+           2       0.33      0.04      0.07        24
 
-    accuracy                           0.71       174
-   macro avg       0.61      0.51      0.43       174
-weighted avg       0.65      0.71      0.60       174
+    accuracy                           0.78       116
+   macro avg       0.56      0.51      0.48       116
+weighted avg       0.70      0.78      0.71       116
 ```
 Download
 
@@ -386,7 +386,7 @@ loregaccuracy=logreg.score(X_test,Y_test)
 loregaccuracy*100
 
 Output:
-71.26436781609196
+78.44827586206897
 ```
 K-Nearest Neighbors
 ```
