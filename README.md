@@ -1,4 +1,4 @@
-## Indian Liver Patient Analysis using Machine Learning
+# Indian Liver Patient Analysis using Machine Learning
 
 Liver Disease is one of the most serious health issue everywhere and every individual must have a little understanding about it, symptoms, age factor and so on.
 In this project I've used Machine Learning model for the analysis and prediction purpose. 
@@ -11,22 +11,20 @@ Steps involved are:
 1. Data Analysis
 2. Data visualization
 3. Feature Selection
-4.
-5. Predict whether a patient has any liver disease or not.
+4. Predict whether a patient has any liver disease or not.
 
-# Importing the required libraries:
+## Importing the required libraries:
 ```markdown
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
 from sklearn.preprocessing import LabelEncoder
-
 ```
 ### 1. Data analysis:
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
+```markdown
+df=pd.read_csv('C:\\Users\\raksh\\Desktop\\dlithe-project\\indian_liver_patient.csv')
+```
 ### Jekyll Themes
 
 Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/RakshaDShetty/IndLiverPatient/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
