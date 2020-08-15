@@ -11,9 +11,9 @@ Steps involved are:
 1. Data Analysis
 2. Data Visualization
 3. Feature Selection
-4. Predict whether a patient has any liver disease or not.
+4. Prediction
 
-## Importing the required libraries:
+### Importing the required libraries:
 ```markdown
 import pandas as pd
 import numpy as np
@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 from sklearn.preprocessing import LabelEncoder
 ```
-### 1. Data analysis:
+## 1. Data analysis:
 ```markdown
 df=pd.read_csv('C:\\Users\\raksh\\Desktop\\dlithe-project\\indian_liver_patient.csv')
 ```
@@ -74,7 +74,7 @@ Since only 4 rows have missing values, we can delete these rows
 print(df.dropna(how='any', inplace=True))
 ```
 
-### 2. Data Visualization:
+## 2. Data Visualization:
 ```
 import seaborn as sns
 sns.countplot(data=df, x = 'Dataset', label='Count')
@@ -224,7 +224,7 @@ Alamine_Aminotransferase & Aspartate_Aminotransferase
 Direct_Bilirubin & Total_Bilirubin
 There is some correlation between Albumin_and_Globulin_Ratio and Albumin. But its not as high as Total_Protiens & Albumin
 
-### 3.Feature Selection
+## 3.Feature Selection
 ```
 from sklearn.model_selection import train_test_split as tts
 X_train, X_test, Y_train, Y_test = tts(X, Y, test_size=0.30, random_state=101)
@@ -424,6 +424,8 @@ RDFAccu*100
 Output:
 68.10344827586206
 ```
+
+## Prediction
 From the above Model Prediction we conclude that Logistic Regression(78.45) and KNN(79.31) have highest Accuracy.
 
 
