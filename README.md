@@ -4,8 +4,7 @@ Liver Disease is one of the most serious health issue everywhere and every indiv
 In this project I've used Machine Learning model for the analysis and prediction purpose. 
 
 I have downloaded the dataset from the UCI ML Repository and the link is mentioned below.
-
-[https://www.kaggle.com/uciml/indian-liver-patient-records]
+(https://www.kaggle.com/uciml/indian-liver-patient-records)
 
 
 Steps involved are:
