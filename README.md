@@ -224,7 +224,7 @@ Alamine_Aminotransferase & Aspartate_Aminotransferase
 Direct_Bilirubin & Total_Bilirubin
 There is some correlation between Albumin_and_Globulin_Ratio and Albumin. But its not as high as Total_Protiens & Albumin
 
-### Feature Selection
+### 3.Feature Selection
 ```
 from sklearn.model_selection import train_test_split as tts
 X_train, X_test, Y_train, Y_test = tts(X, Y, test_size=0.30, random_state=101)
