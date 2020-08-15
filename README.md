@@ -1,31 +1,30 @@
 ## Indian Liver Patient Analysis using Machine Learning
 
-You can use the [editor on GitHub](https://github.com/RakshaDShetty/IndLiverPatient/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Liver Disease is one of the most serious health issue everywhere and every individual must have a little understanding about it, symptoms, age factor and so on.
+In this project I've used Machine Learning model for the analysis and prediction purpose. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+I have downloaded the dataset from the UCI ML Repository and the link is mentioned below.
+https://www.kaggle.com/uciml/indian-liver-patient-records
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Steps involved are:
+1. Data Analysis
+2. Data visualization
+3. Feature Selection
+4.
+5. Predict whether a patient has any liver disease or not.
 
+# Importing the required libraries:
 ```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+from sklearn.preprocessing import LabelEncoder
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
-
+### 1. Data analysis:
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Jekyll Themes
