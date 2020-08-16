@@ -103,6 +103,7 @@ Number of patients that are female:  142
 sns.factorplot(x="Age", y="Gender", hue="Dataset", data=df);
 ```
 ![](images/download%20(2).png)
+
 Above implies that AGE is an important factor.
 ```
 df[['Gender', 'Dataset','Age']].groupby(['Dataset','Gender'], as_index=False).count().sort_values(by='Dataset', ascending=False)
@@ -118,45 +119,45 @@ g.map(plt.hist, "Age", color="red")
 plt.subplots_adjust(top=0.9)
 g.fig.suptitle('Disease by Gender and Age');
 ```
-Download
+![](images/download%20(3).png)
 
 ```
 g = sns.FacetGrid(df, col="Gender", row="Dataset", margin_titles=True)
 g.map(plt.scatter,"Direct_Bilirubin", "Total_Bilirubin", edgecolor="w")
 plt.subplots_adjust(top=0.9)
 ```
-Download 
+![](images/download%20(5).png)
 
 There seems to be direct relationship between Total_Bilirubin and Direct_Bilirubin. We have the possibility of removing one of this feature.
 ```
 sns.jointplot("Total_Bilirubin", "Direct_Bilirubin", data=df, kind="reg")
 ```
-Download
+![](images/download%20(6).png)
 
 ```
 g = sns.FacetGrid(df, col="Gender", row="Dataset", margin_titles=True)
 g.map(plt.scatter,"Aspartate_Aminotransferase", "Alamine_Aminotransferase",  edgecolor="w")
 plt.subplots_adjust(top=0.9)
 ```
-Download
+![](images/download%20(7).png)
 
 #There is linear relationship between Aspartate_Aminotransferase and Alamine_Aminotransferase and the gender. We have the possibility of removing one of this feature.
 ```
 sns.jointplot("Aspartate_Aminotransferase", "Alamine_Aminotransferase", data=df, kind="reg")
 ```
-download
+![](images/download%20(8).png)
 
 ```
 g = sns.FacetGrid(df, col="Gender", row="Dataset", margin_titles=True)
 g.map(plt.scatter,"Alkaline_Phosphotase", "Alamine_Aminotransferase",  edgecolor="w")
 plt.subplots_adjust(top=0.9)
 ```
-Download
+![](images/download%20(9).png)
 
 ```
 sns.jointplot("Alkaline_Phosphotase", "Alamine_Aminotransferase", data=df, kind="reg")
 ```
-Downlaod
+![](images/download%20(10).png)
 
 No linear correlation between Alkaline_Phosphotase and Alamine_Aminotransferase.
 
@@ -165,37 +166,37 @@ g = sns.FacetGrid(df, col="Gender", row="Dataset", margin_titles=True)
 g.map(plt.scatter,"Total_Protiens", "Albumin",  edgecolor="w")
 plt.subplots_adjust(top=0.9)
 ```
-Download
+![](images/download%20(11).png)
 
 #There is linear relationship between Total_Protiens and Albumin and the gender. We have the possibility of removing one of this feature.
 ```
 sns.jointplot("Total_Protiens", "Albumin", data=df, kind="reg")
 ```
-Dowmload
+![](images/download%20(12).png)
 
 ```
 g = sns.FacetGrid(df, col="Gender", row="Dataset", margin_titles=True)
 g.map(plt.scatter,"Albumin", "Albumin_and_Globulin_Ratio",  edgecolor="w")
 plt.subplots_adjust(top=0.9)
 ```
-download
+![](images/download%20(13).png)
 
 ```
 sns.jointplot("Albumin_and_Globulin_Ratio", "Albumin", data=df, kind="reg")
 ```
-Download
+![](images/download%20(14).png)
 ```
 g = sns.FacetGrid(df, col="Gender", row="Dataset", margin_titles=True)
 g.map(plt.scatter,"Albumin_and_Globulin_Ratio", "Total_Protiens",  edgecolor="w")
 plt.subplots_adjust(top=0.9)
 ```
-Download
+![](images/download%20(15).png)
 
 Convert the categorical values of gender.
 ```
 pd.get_dummies(df['Gender'], prefix = 'Gender').head()
 ```
-Dataset pic!
+![](images/Screenshot%20(3).png)
 ```
 df = pd.concat([df,pd.get_dummies(df['Gender'], prefix = 'Gender')], axis=1)
 ```
@@ -216,7 +217,7 @@ sns.heatmap(corr, cbar = True,  square = True, annot=True, fmt= '.2f',annot_kws=
            cmap= 'coolwarm')
 plt.title('Correlation between features');
 ```
-Download
+![](images/download%20(16).png)
 
 The above correlation also indicates the following correlation
 Total_Protiens & Albumin
@@ -283,7 +284,7 @@ weighted avg       0.80      0.82      0.81        99
 
 
  ```
-download
+![](images/new%20(1).png)
 
 ```
 coeff_df = pd.DataFrame(X.columns)
@@ -293,7 +294,7 @@ pd.Series(logreg.coef_[0])
 
 coeff_df.sort_values(by='Correlation', ascending=False)
 ```
-Dataset
+![](images/Screenshot%20(4).png)
 
 Linear Regression
 ```
@@ -384,7 +385,7 @@ Classification Report:
 weighted avg       0.80      0.82      0.81        99
 
 ```
-Download
+![](images/new%20(2).png)
 
 ```
 loregaccuracy=logreg.score(X_test,Y_test)
