@@ -10,8 +10,9 @@ I have downloaded the dataset from the UCI ML Repository and the link is mention
 Steps involved are:
 1. Data Analysis
 2. Data Visualization
-3. Feature Selection
-4. Prediction
+3. Identify relations/trends
+4. Feature Selection
+5. Prediction
 
 ### Importing the required libraries:
 ```markdown
@@ -220,13 +221,15 @@ plt.title('Correlation between features');
 ```
 ![](images/download%20(16).png)
 
+## 3. Identify relations/trends
+
 The above correlation also indicates the following correlation
 Total_Protiens & Albumin
 Alamine_Aminotransferase & Aspartate_Aminotransferase
 Direct_Bilirubin & Total_Bilirubin
 There is some correlation between Albumin_and_Globulin_Ratio and Albumin. But its not as high as Total_Protiens & Albumin
 
-## 3.Feature Selection
+## 4.Feature Selection
 ```
 from sklearn.model_selection import train_test_split as tts
 X_train, X_test, Y_train, Y_test = tts(X, Y, test_size=0.17, random_state=299)
@@ -433,7 +436,7 @@ Output:
 82.82828282828282
 ```
 
-## 4.Prediction
+## 5.Prediction
 From the above Model Prediction we conclude that KNN(83.83), Random Forest(82.83) and Logistic Regression(81.82) have highest Accuracy.
 
 ```
