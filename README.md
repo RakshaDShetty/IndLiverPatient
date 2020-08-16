@@ -258,6 +258,7 @@ print('Classification Report: \n', classification_report(Y_test,log_predicted))
 
 sns.heatmap(confusion_matrix(Y_test,log_predicted),annot=True,fmt="d")
 
+Output:
 Logistic Regression Training Score: 
  70.0
 Logistic Regression Test Score: 
@@ -284,7 +285,7 @@ weighted avg       0.80      0.82      0.81        99
 
 
  ```
-![](images/new%20(1).png)
+![](images/new(1).png)
 
 ```
 coeff_df = pd.DataFrame(X.columns)
@@ -336,7 +337,7 @@ Considering seven important features based on recursive feature elimination
 finX = df[['Total_Protiens','Albumin', 'Gender_Male']]
 finX.head(4)
 ```
-Dataset
+![](images/Screenshot%20(5).png)
 
 Logistic Regression
 ```
