@@ -29,8 +29,9 @@ Data Cleaning
 Lets look for any missing value in our dataset.
 ```
 df.isnull().sum()
+```
 
-
+Output:
 Age                           0
 Gender                        0
 Total_Bilirubin               0
@@ -43,13 +44,14 @@ Albumin                       0
 Albumin_and_Globulin_Ratio    4
 Dataset                       0
 dtype: int64
-```
 
 We see that we have 4 missing values for Albumin_and_Globulin_Ratio
 to check for rows having missing values
 ```
 print(df[df.Albumin_and_Globulin_Ratio.isnull()])
+```
 
+Output:
      Age  Gender  Total_Bilirubin  Direct_Bilirubin  Alkaline_Phosphotase  \
 209   45  Female              0.9               0.3                   189   
 241   51    Male              0.8               0.2                   230   
@@ -68,7 +70,7 @@ print(df[df.Albumin_and_Globulin_Ratio.isnull()])
 253      2.7                         NaN        2  
 312      4.8                         NaN        2  
 
-```
+
 Since only 4 rows have missing values, we can delete these rows
 ```
 print(df.dropna(how='any', inplace=True))
@@ -81,10 +83,12 @@ sns.countplot(data=df, x = 'Dataset', label='Count')
 LD, NLD = df['Dataset'].value_counts()
 print('Number of patients diagnosed with liver disease: ',LD)
 print('Number of patients not diagnosed with liver disease: ',NLD)
+```
 
+Output:
 Number of patients diagnosed with liver disease:  416
 Number of patients not diagnosed with liver disease:  167
-```
+
 ![](images/download%20(0).png)
 
 ```
@@ -93,10 +97,12 @@ sns.countplot(data=df, x = 'Gender', label='Count')
 M, F = df['Gender'].value_counts()
 print('Number of patients that are male: ',M)
 print('Number of patients that are female: ',F)
+```
 
+output:
 Number of patients that are male:  441
 Number of patients that are female:  142
-```
+
 ![](images/download%20(1).png)
 
 ```
@@ -140,8 +146,8 @@ g.map(plt.scatter,"Aspartate_Aminotransferase", "Alamine_Aminotransferase",  edg
 plt.subplots_adjust(top=0.9)
 ```
 ![](images/download%20(7).png)
+There is linear relationship between Aspartate_Aminotransferase and Alamine_Aminotransferase and the gender. We have the possibility of removing one of this feature.
 
-#There is linear relationship between Aspartate_Aminotransferase and Alamine_Aminotransferase and the gender. We have the possibility of removing one of this feature.
 ```
 sns.jointplot("Aspartate_Aminotransferase", "Alamine_Aminotransferase", data=df, kind="reg")
 ```
@@ -158,7 +164,6 @@ plt.subplots_adjust(top=0.9)
 sns.jointplot("Alkaline_Phosphotase", "Alamine_Aminotransferase", data=df, kind="reg")
 ```
 ![](images/download%20(10).png)
-
 No linear correlation between Alkaline_Phosphotase and Alamine_Aminotransferase.
 
 ```
@@ -168,7 +173,7 @@ plt.subplots_adjust(top=0.9)
 ```
 ![](images/download%20(11).png)
 
-#There is linear relationship between Total_Protiens and Albumin and the gender. We have the possibility of removing one of this feature.
+There is linear relationship between Total_Protiens and Albumin and the gender. We have the possibility of removing one of this feature.
 ```
 sns.jointplot("Total_Protiens", "Albumin", data=df, kind="reg")
 ```
@@ -257,6 +262,7 @@ print('Confusion Matrix: \n', confusion_matrix(Y_test,log_predicted))
 print('Classification Report: \n', classification_report(Y_test,log_predicted))
 
 sns.heatmap(confusion_matrix(Y_test,log_predicted),annot=True,fmt="d")
+```
 
 Output:
 Logistic Regression Training Score: 
@@ -283,8 +289,6 @@ Classification Report:
    macro avg       0.67      0.63      0.65        99
 weighted avg       0.80      0.82      0.81        99
 
-
- ```
 ![](images/new(1).png)
 
 ```
@@ -318,6 +322,7 @@ print('Intercept: \n', linear.intercept_)
 from sklearn.feature_selection import RFE
 rfe =RFE(linear, n_features_to_select=3)
 rfe.fit(X,Y)
+```
 
 Output:
 Linear Regression Score: 
@@ -331,7 +336,6 @@ Coefficient:
 Intercept: 
  1.6712228628389874
 
-```
 Considering seven important features based on recursive feature elimination
 ```
 finX = df[['Total_Protiens','Albumin', 'Gender_Male']]
@@ -366,7 +370,7 @@ print('Classification Report:\n', classification_report(Y_test,log_predicted))
 
 sns.heatmap(confusion_matrix(Y_test,log_predicted),annot=True,fmt="d")
 
-Output:
+```
 Logistic Regression Train Accuracy: 70.0
 Logistic Regression Test Accuracy: 81.81818181818183
 Coefficient: [[-0.01112551 -0.05348263 -0.41995266 -0.00064794 -0.00956595 -0.00199349
@@ -385,16 +389,17 @@ Classification Report:
    macro avg       0.67      0.63      0.65        99
 weighted avg       0.80      0.82      0.81        99
 
-```
+
 ![](images/new%20(2).png)
 
 ```
 loregaccuracy=logreg.score(X_test,Y_test)
 loregaccuracy*100
+```
 
 Output:
 81.81818181818183
-```
+
 K-Nearest Neighbors
 ```
 from sklearn.neighbors import KNeighborsClassifier
@@ -403,10 +408,11 @@ knn.fit(X_test,Y_test)
 knnpred=knn.predict(X_test)
 knnacc=knn.score(X_test,Y_test)
 knnacc*100
+```
 
 Output:
 83.83838383838383
-```
+
 Decision Tree classifier
 ```
 from sklearn.tree import DecisionTreeClassifier
@@ -415,10 +421,11 @@ DTree.fit(X_train,Y_train)
 DTreePred=DTree.predict(X_test)
 DTreeAccu=DTree.score(X_test,Y_test)
 DTreeAccu*100
+```
 
 Output:
 72.72727272727273
-```
+
 Random forest Classifier
 ```
 from sklearn.ensemble import RandomForestClassifier
@@ -427,10 +434,11 @@ RDF.fit(X_train,Y_train)
 RDFPred=RDF.predict(X_test)
 RDFAccu=RDF.score(X_test,Y_test)
 RDFAccu*100
+```
 
 Output:
 82.82828282828282
-```
+
 
 ## 4.Prediction
 From the above Model Prediction we conclude that KNN(83.83), Random Forest(82.83) and Logistic Regression(81.82) have highest Accuracy.
@@ -440,17 +448,19 @@ From the above Model Prediction we conclude that KNN(83.83), Random Forest(82.83
 from sklearn.metrics import confusion_matrix
 conmat=confusion_matrix(Y_test,log_predicted)
 conmat
+```
 
 Output:
 array([[75,  7],
        [11,  6]], dtype=int64)
 
+```
 from sklearn.metrics import confusion_matrix
 knnmat=confusion_matrix(Y_test,knnpred)
 knnmat
+```
 
 Output:
 array([[77,  5],
        [11,  6]], dtype=int64)
-       
-```       
+              
