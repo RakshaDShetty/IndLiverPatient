@@ -230,6 +230,8 @@ Direct_Bilirubin & Total_Bilirubin
 There is some correlation between Albumin_and_Globulin_Ratio and Albumin. But its not as high as Total_Protiens & Albumin
 
 ## 4.Feature Selection
+
+Logistic Regression
 ```
 from sklearn.model_selection import train_test_split as tts
 X_train, X_test, Y_train, Y_test = tts(X, Y, test_size=0.17, random_state=299)
@@ -299,6 +301,14 @@ coeff_df.sort_values(by='Correlation', ascending=False)
 ```
 ![](images/Screenshot%20(4).png)
 
+
+```
+loregaccuracy=logreg.score(X_test,Y_test)
+loregaccuracy*100
+
+Output:
+81.81818181818183
+```
 Linear Regression
 ```
 from sklearn import linear_model
@@ -340,62 +350,6 @@ finX.head(4)
 ```
 ![](images/Screenshot%20(5).png)
 
-Logistic Regression
-```
-#Logistic Regression
-logreg = LogisticRegression()
-# Train the model using the training sets and check score
-logreg.fit(X_train, Y_train)
-#Predict Output
-log_predicted= logreg.predict(X_test)
-
-logreg_score = logreg.score(X_train, Y_train) * 100
-logreg_score_test = logreg.score(X_test, Y_test) * 100
-#Equation coefficient and Intercept
-print('Logistic Regression Train Accuracy:', logreg_score)
-print('Logistic Regression Test Accuracy:', logreg_score_test)
-print('Coefficient:', logreg.coef_)
-print('Intercept:', logreg.intercept_)
-print('Accuracy:', accuracy_score(Y_test,log_predicted))
-
-#compare right vs wrong predictions
-#here its comparing to knw how many matches and not
-conmat=confusion_matrix(Y_test,log_predicted)
-print('Confusion Matrix:',conmat)
-
-print('Classification Report:\n', classification_report(Y_test,log_predicted))
-
-sns.heatmap(confusion_matrix(Y_test,log_predicted),annot=True,fmt="d")
-
-Output:
-Logistic Regression Train Accuracy: 70.0
-Logistic Regression Test Accuracy: 81.81818181818183
-Coefficient: [[-0.01112551 -0.05348263 -0.41995266 -0.00064794 -0.00956595 -0.00199349
-  -0.17603323  0.33754815  0.33522491  0.22843094  0.13535704]]
-Intercept: [0.38090827]
-Accuracy: 0.8181818181818182
-Confusion Matrix: [[75  7]
- [11  6]]
-Classification Report:
-               precision    recall  f1-score   support
-
-           1       0.87      0.91      0.89        82
-           2       0.46      0.35      0.40        17
-
-    accuracy                           0.82        99
-   macro avg       0.67      0.63      0.65        99
-weighted avg       0.80      0.82      0.81        99
-```
-
-![](images/new%20(2).png)
-
-```
-loregaccuracy=logreg.score(X_test,Y_test)
-loregaccuracy*100
-
-Output:
-81.81818181818183
-```
 
 K-Nearest Neighbors
 ```
