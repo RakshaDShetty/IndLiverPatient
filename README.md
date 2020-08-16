@@ -227,7 +227,7 @@ There is some correlation between Albumin_and_Globulin_Ratio and Albumin. But it
 ## 3.Feature Selection
 ```
 from sklearn.model_selection import train_test_split as tts
-X_train, X_test, Y_train, Y_test = tts(X, Y, test_size=0.30, random_state=101)
+X_train, X_test, Y_train, Y_test = tts(X, Y, test_size=0.17, random_state=299)
 print (X_train.shape)
 print (Y_train.shape)
 print (X_test.shape)
@@ -258,28 +258,29 @@ print('Classification Report: \n', classification_report(Y_test,log_predicted))
 sns.heatmap(confusion_matrix(Y_test,log_predicted),annot=True,fmt="d")
 
 Logistic Regression Training Score: 
- 72.5925925925926
+ 70.0
 Logistic Regression Test Score: 
- 70.6896551724138
+ 81.81818181818183
 Coefficient: 
- [[-0.01389644  0.0052153  -0.47259648 -0.00072215 -0.01065968 -0.00503362
-  -0.18770568  0.46130938  0.24226435  0.18570231  0.12571321]]
+ [[-0.01112551 -0.05348263 -0.41995266 -0.00064794 -0.00956595 -0.00199349
+  -0.17603323  0.33754815  0.33522491  0.22843094  0.13535704]]
 Intercept: 
- [0.33329304]
+ [0.38090827]
 Accuracy: 
- 0.7068965517241379
+ 0.8181818181818182
 Confusion Matrix: 
- [[113  11]
- [ 40  10]]
+ [[75  7]
+ [11  6]]
 Classification Report: 
                precision    recall  f1-score   support
 
-           1       0.74      0.91      0.82       124
-           2       0.48      0.20      0.28        50
+           1       0.87      0.91      0.89        82
+           2       0.46      0.35      0.40        17
 
-    accuracy                           0.71       174
-   macro avg       0.61      0.56      0.55       174
-weighted avg       0.66      0.71      0.66       174
+    accuracy                           0.82        99
+   macro avg       0.67      0.63      0.65        99
+weighted avg       0.80      0.82      0.81        99
+
 
  ```
 download
@@ -317,13 +318,17 @@ rfe =RFE(linear, n_features_to_select=3)
 rfe.fit(X,Y)
 
 Output:
-Linear Regression Score: 12.97
-Linear Regression Test Score: 8.71
+Linear Regression Score: 
+ 11.39
+Linear Regression Test Score: 
+ 3.62
 Coefficient: 
- [-3.19568356e-03 -3.72174104e-04 -1.77536841e-02 -1.75872415e-04
- -3.89111234e-04  5.21731268e-05 -8.12987750e-02  1.73328624e-01
- -7.66122406e-02  2.53152260e-02 -2.53152260e-02]
-Intercept: 1.6053571110507452
+ [-2.80721776e-03 -6.32097600e-04 -2.32713782e-02 -1.76474075e-04
+ -4.03931935e-04  7.33243868e-05 -7.33226344e-02  1.28007261e-01
+ -4.34929567e-02  2.24880063e-02 -2.24880063e-02]
+Intercept: 
+ 1.6712228628389874
+
 ```
 Considering seven important features based on recursive feature elimination
 ```
@@ -331,10 +336,8 @@ finX = df[['Total_Protiens','Albumin', 'Gender_Male']]
 finX.head(4)
 ```
 Dataset
-```
-X_train, X_test, Y_train, Y_test = train_test_split(finX, Y, test_size=0.30, random_state=101)
-```
-Logistic Regreession
+
+Logistic Regression
 ```
 #Logistic Regression
 logreg = LogisticRegression()
@@ -362,22 +365,24 @@ print('Classification Report:\n', classification_report(Y_test,log_predicted))
 sns.heatmap(confusion_matrix(Y_test,log_predicted),annot=True,fmt="d")
 
 Output:
-Logistic Regression Train Accuracy: 79.76241900647948
-Logistic Regression Test Accuracy: 78.44827586206897
-Coefficient: [[-0.50389398  0.97519014 -0.43140494]]
-Intercept: [-0.34806314]
-Accuracy: 0.7844827586206896
-Confusion Matrix: [[90  2]
- [23  1]]
+Logistic Regression Train Accuracy: 70.0
+Logistic Regression Test Accuracy: 81.81818181818183
+Coefficient: [[-0.01112551 -0.05348263 -0.41995266 -0.00064794 -0.00956595 -0.00199349
+  -0.17603323  0.33754815  0.33522491  0.22843094  0.13535704]]
+Intercept: [0.38090827]
+Accuracy: 0.8181818181818182
+Confusion Matrix: [[75  7]
+ [11  6]]
 Classification Report:
                precision    recall  f1-score   support
 
-           1       0.80      0.98      0.88        92
-           2       0.33      0.04      0.07        24
+           1       0.87      0.91      0.89        82
+           2       0.46      0.35      0.40        17
 
-    accuracy                           0.78       116
-   macro avg       0.56      0.51      0.48       116
-weighted avg       0.70      0.78      0.71       116
+    accuracy                           0.82        99
+   macro avg       0.67      0.63      0.65        99
+weighted avg       0.80      0.82      0.81        99
+
 ```
 Download
 
@@ -386,7 +391,7 @@ loregaccuracy=logreg.score(X_test,Y_test)
 loregaccuracy*100
 
 Output:
-78.44827586206897
+81.81818181818183
 ```
 K-Nearest Neighbors
 ```
@@ -398,7 +403,7 @@ knnacc=knn.score(X_test,Y_test)
 knnacc*100
 
 Output:
-79.3103448275862
+83.83838383838383
 ```
 Decision Tree classifier
 ```
@@ -410,7 +415,7 @@ DTreeAccu=DTree.score(X_test,Y_test)
 DTreeAccu*100
 
 Output:
-61.206896551724135
+72.72727272727273
 ```
 Random forest Classifier
 ```
@@ -422,7 +427,7 @@ RDFAccu=RDF.score(X_test,Y_test)
 RDFAccu*100
 
 Output:
-68.10344827586206
+82.82828282828282
 ```
 
 ## Prediction
@@ -437,15 +442,15 @@ conmat=confusion_matrix(Y_test,log_predicted)
 conmat
 
 Output:
-array([[123,   1],
-       [ 49,   1]], dtype=int64)
+array([[75,  7],
+       [11,  6]], dtype=int64)
 
 from sklearn.metrics import confusion_matrix
 knnmat=confusion_matrix(Y_test,knnpred)
 knnmat
 
 Output:
-array([[90,  2],
-       [22,  2]], dtype=int64)
+array([[77,  5],
+       [11,  6]], dtype=int64)
        
 ```       
