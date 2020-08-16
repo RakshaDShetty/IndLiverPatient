@@ -289,7 +289,7 @@ Classification Report:
    macro avg       0.67      0.63      0.65        99
 weighted avg       0.80      0.82      0.81        99
 ```
-![](images/new(1).png)
+![](images/new1.png)
 
 ```
 coeff_df = pd.DataFrame(X.columns)
