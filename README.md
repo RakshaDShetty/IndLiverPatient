@@ -433,9 +433,7 @@ Output:
 ```
 
 ## Prediction
-From the above Model Prediction we conclude that Logistic Regression(78.45) and KNN(79.31) have highest Accuracy.
-
-
+From the above Model Prediction we conclude that KNN(83.83), Random Forest(82.83) and Logistic Regression(81.82) have highest Accuracy.
 
 ```
 #here its comparing to knw how many matches and not 
