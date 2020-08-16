@@ -85,7 +85,7 @@ print('Number of patients not diagnosed with liver disease: ',NLD)
 Number of patients diagnosed with liver disease:  416
 Number of patients not diagnosed with liver disease:  167
 ```
-Download
+![](images/download%20(0).png)
 
 ```
 sns.countplot(data=df, x = 'Gender', label='Count')
@@ -97,21 +97,21 @@ print('Number of patients that are female: ',F)
 Number of patients that are male:  441
 Number of patients that are female:  142
 ```
-Download 2
+![](images/download%20(1).png)
 
 ```
 sns.factorplot(x="Age", y="Gender", hue="Dataset", data=df);
 ```
-Download
+![](images/download%20(2).png)
 Above implies that AGE is an important factor.
 ```
 df[['Gender', 'Dataset','Age']].groupby(['Dataset','Gender'], as_index=False).count().sort_values(by='Dataset', ascending=False)
 ```
-Dataset pic
+![](images/Screenshot%201.png)
 ```
 df[['Gender', 'Dataset','Age']].groupby(['Dataset','Gender'], as_index=False).mean().sort_values(by='Dataset', ascending=False)
 ```
-Dataset pic
+![](images/Screenshot%202.png)
 ```
 g = sns.FacetGrid(df, col="Dataset", row="Gender", margin_titles=True)
 g.map(plt.hist, "Age", color="red")
