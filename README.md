@@ -25,7 +25,7 @@ from sklearn.preprocessing import LabelEncoder
 ```markdown
 df=pd.read_csv('...\\Desktop\\dlithe-project\\indian_liver_patient.csv')
 ```
-Data Cleaning
+
 Lets look for any missing value in our dataset.
 ```
 df.isnull().sum()
@@ -95,7 +95,7 @@ M, F = df['Gender'].value_counts()
 print('Number of patients that are male: ',M)
 print('Number of patients that are female: ',F)
 
-output:
+Output:
 Number of patients that are male:  441
 Number of patients that are female:  142
 ```
