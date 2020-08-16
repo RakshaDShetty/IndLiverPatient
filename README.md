@@ -23,7 +23,7 @@ from sklearn.preprocessing import LabelEncoder
 ```
 ## 1. Data analysis:
 ```markdown
-df=pd.read_csv('C:\\Users\\raksh\\Desktop\\dlithe-project\\indian_liver_patient.csv')
+df=pd.read_csv('...\\Desktop\\dlithe-project\\indian_liver_patient.csv')
 ```
 Data Cleaning
 Lets look for any missing value in our dataset.
